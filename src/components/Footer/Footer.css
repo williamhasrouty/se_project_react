@@ -1,0 +1,15 @@
+.footer {
+  margin: auto 0 24px;
+  line-height: 20px;
+  font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__name,
+.footer__year {
+  margin: 0;
+}
