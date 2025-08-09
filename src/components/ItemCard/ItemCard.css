@@ -22,3 +22,10 @@
   border-radius: 19px;
   border: 1px solid #0000004d;
 }
+
+@media screen and (max-width: 627px) {
+  .card {
+    width: 164px;
+    height: 164px;
+  }
+}

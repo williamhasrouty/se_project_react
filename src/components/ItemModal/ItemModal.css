@@ -2,12 +2,17 @@
   position: fixed;
 }
 
-.modal__content {
+.modal__content-item {
   position: relative;
-  width: 498px; 
-  height: auto; 
-  padding: 0;
+  height: auto;
   overflow: hidden;
+  padding: 0;
+  background-color: #ffffff;
+  border: 1px solid #0000004d;
+  max-width: 496px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 20px;
 }
 
 .modal__image {

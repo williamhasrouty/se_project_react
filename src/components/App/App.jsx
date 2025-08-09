@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import { coordinates, apiKey } from "../../utils/constants";
+import { getWeather, filterWeatherData } from "../../utils/weatherApi";
+import "./App.css";
 import "../../vendor/fonts.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
-import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -37,23 +37,37 @@ function App() {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
-      .catch(console.error);
+      .catch((error) => {
+        console.error("Failed to fetch weather data:", error);
+      });
   }, []);
+
+  useEffect(() => {
+    if (!activeModal) return;
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   return (
     <div className="page">
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main
-          weatherData={weatherData}
-          handleCardClick={handleCardClick}
-        />
+        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
       </div>
       <ModalWithForm
         title="New garment"
         buttonText="Add garment"
-        activeModal={activeModal}
+        isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
       >
         <label htmlFor="name" className="modal__label">

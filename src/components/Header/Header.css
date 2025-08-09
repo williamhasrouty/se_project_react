@@ -34,3 +34,128 @@
   line-height: 1;
   font-size: 20px;
 }
+
+/* TODO - Still working on responsive design */
+/* TODO - Still working on responsive design */
+/* TODO - Still working on responsive design */
+/* TODO - Still working on responsive design */
+
+.header__menu-btn {
+  display: none;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+}
+
+.header__menu-open {
+  width: 100%;
+  height: 208px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 10000;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  display: block;
+}
+
+.modal__content-header .header__user-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal__content-header .header__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 627px) {
+  .header {
+    display: flex;
+    align-items: normal;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .header__logo {
+    width: 89px;
+    height: 40px;
+    margin: 0;
+  }
+
+  .header__date-and-location {
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 32px;
+  }
+
+  .header__add-clothes-btn,
+  .header__user-container {
+    display: none;
+  }
+
+  .header__menu-btn {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 18px 16px;
+  }
+  .header__left_hidden {
+    display: none;
+  }
+}
+
+/* 
+@media screen and (max-width: 627px) {
+  .header__add-clothes-btn,
+  .header__user-container {
+    display: none;
+  }
+
+  .header__menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .header__mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    left: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .header__mobile-menu_open {
+    display: flex;
+  }
+
+  .header__mobile-add-btn {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .header__mobile-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+} */
