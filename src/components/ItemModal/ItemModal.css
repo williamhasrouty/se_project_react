@@ -4,8 +4,8 @@
 
 .modal__content {
   position: relative;
-  width: 498px; /* or your desired width */
-  height: auto; /* or your desired height */
+  width: 498px; 
+  height: auto; 
   padding: 0;
   overflow: hidden;
 }
