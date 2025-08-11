@@ -61,6 +61,7 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
         <Footer />
       </div>

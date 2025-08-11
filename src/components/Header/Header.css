@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding: 32px 0 28px;
+  transition: 0.5s ease-in-out;
 }
 
 .header__logo {
@@ -50,23 +51,40 @@
 }
 
 .header__menu-open {
-  width: 100%;
+  width: 343px;
   height: 208px;
   background-color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   background: white;
   z-index: 10000;
-  padding: 20px;
-  border-bottom: 1px solid #ccc;
   display: block;
+  border-radius: 10px;
+  position: relative;
+}
+
+.header__menu-open .header__menu-btn {
+  display: none;
+}
+
+.header__menu-open .modal__close-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 9px;
+  top: 9px;
+}
+
+.modal__content-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
 .modal__content-header .header__user-container {
   display: flex;
-  align-items: center;
   gap: 10px;
 }
 
@@ -76,6 +94,11 @@
   border-radius: 50%;
 }
 
+.modal__content-header .header__add-clothes-btn {
+  display: block;
+  margin: 0;
+}
+
 @media screen and (max-width: 627px) {
   .header {
     display: flex;
@@ -83,18 +106,19 @@
     flex-wrap: nowrap;
     flex-direction: column;
     padding-top: 20px;
+    justify-content: space-evenly;
   }
 
   .header__logo {
     width: 89px;
     height: 40px;
-    margin: 0;
+    margin: 0px;
   }
 
   .header__date-and-location {
     font-size: 20px;
     line-height: 24px;
-    margin-top: 32px;
+    margin: 32px 0 16px;
   }
 
   .header__add-clothes-btn,
@@ -103,17 +127,21 @@
   }
 
   .header__menu-btn {
-    display: block;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border: none;
+    background-color: transparent;
     width: 44px;
     height: 44px;
+    right: 12px;
+    padding: 0;
   }
 }
 
 @media screen and (max-width: 480px) {
   .header {
-    padding: 18px 16px;
+    padding: 0;
   }
   .header__left_hidden {
     display: none;

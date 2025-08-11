@@ -3,6 +3,7 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
 import menu from "../../assets/menu.svg";
+import close from "../../assets/close-dark.svg";
 
 function Header({ handleAddClick, weatherData }) {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
@@ -48,7 +49,7 @@ function Header({ handleAddClick, weatherData }) {
       {isMobileMenuOpened && (
         <div className="modal__content-header">
           <button onClick={toggleMobileMenu} className="modal__close-btn">
-            Close
+            <img src={close} alt="Close button" className="modal__close-btn" />
           </button>
 
           <div className="header__user-container">
@@ -59,6 +60,13 @@ function Header({ handleAddClick, weatherData }) {
               className="header__avatar"
             />
           </div>
+          <button
+            onClick={handleAddClick}
+            type="button"
+            className="header__add-clothes-btn modal__add-clothes-btn"
+          >
+            + Add clothes
+          </button>
         </div>
       )}
     </header>
@@ -66,7 +74,3 @@ function Header({ handleAddClick, weatherData }) {
 }
 
 export default Header;
-
-/* TODO - Still working on responsive design */
-/* TODO - Still working on responsive design */
-/* TODO - Still working on responsive design */
