@@ -69,6 +69,7 @@ function App() {
     deleteItem(id)
       .then(() => {
         setClothingItems(clothingItems.filter((item) => item._id !== id));
+        closeActiveModal();
       })
       .catch((err) => {
         console.error("Error deleting item:", err);
@@ -162,6 +163,7 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           onClose={closeActiveModal}
+          onDeleteItem={handleDeleteItem}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>

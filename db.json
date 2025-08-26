@@ -25,12 +25,6 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4"
     },
     {
-      "_id": 4,
-      "name": "Dress",
-      "weather": "hot",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Dress.png?etag=1f9cd32a311ab139cab43494883720bf"
-    },
-    {
       "_id": 5,
       "name": "Hoodie",
       "weather": "cold",
@@ -101,12 +95,6 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
-    },
-    {
-      "name": "blue shirt",
-      "imageUrl": "https://www.ledbury.com/cdn/shop/files/5W25A6-523-1-The-Sky-Blue-Alta-Plaid-lifestyle.webp?crop=region&crop_height=2000&crop_left=200&crop_top=0&crop_width=1600&v=1749062115&width=2000",
-      "weather": "warm",
-      "_id": 17
     }
   ]
 }
