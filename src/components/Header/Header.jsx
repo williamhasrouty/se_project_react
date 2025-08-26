@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
@@ -21,12 +23,17 @@ function Header({ handleAddClick, weatherData }) {
     >
       {!isMobileMenuOpened && (
         <>
-          <img className="header__logo" src={logo} alt="Header Logo" />
+          <Link to="/">
+            <img className="header__logo" src={logo} alt="Header Logo" />
+          </Link>
+
           <p className="header__date-and-location">
             {currentDate}, {weatherData.city}
           </p>
         </>
       )}
+
+      <ToggleSwitch />
       <button
         onClick={handleAddClick}
         type="button"
@@ -34,17 +41,19 @@ function Header({ handleAddClick, weatherData }) {
       >
         + Add clothes
       </button>
-      <div className="header__user-container">
-        <p className="header__username">Terrence Tegagne</p>
-        <img src={avatar} alt="Terrence Tegagne" className="header__avatar" />
-      </div>
-      <button
-        onClick={toggleMobileMenu}
-        className="header__menu-btn"
-        aria-label="Toggle menu"
-      >
-        <img src={menu} alt="App Menu" />
-      </button>
+      <Link to="/profile" className="header__link">
+        <div className="header__user-container">
+          <p className="header__username">Terrence Tegagne</p>
+          <img src={avatar} alt="Terrence Tegagne" className="header__avatar" />
+        </div>
+        <button
+          onClick={toggleMobileMenu}
+          className="header__menu-btn"
+          aria-label="Toggle menu"
+        >
+          <img src={menu} alt="App Menu" />
+        </button>
+      </Link>
 
       {isMobileMenuOpened && (
         <div className="modal__content-header">
@@ -60,6 +69,7 @@ function Header({ handleAddClick, weatherData }) {
               className="header__avatar"
             />
           </div>
+
           <button
             onClick={handleAddClick}
             type="button"
