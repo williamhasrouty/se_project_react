@@ -41,24 +41,24 @@ function Header({ handleAddClick, weatherData }) {
       >
         + Add clothes
       </button>
+
       <Link to="/profile" className="header__link">
         <div className="header__user-container">
           <p className="header__username">Terrence Tegagne</p>
           <img src={avatar} alt="Terrence Tegagne" className="header__avatar" />
         </div>
-        <button
-          onClick={toggleMobileMenu}
-          className="header__menu-btn"
-          aria-label="Toggle menu"
-        >
-          <img src={menu} alt="App Menu" />
-        </button>
       </Link>
-
+      <button
+        onClick={toggleMobileMenu}
+        className="header__menu-btn"
+        aria-label="Toggle menu"
+      >
+        <img src={menu} alt="App Menu" />
+      </button>
       {isMobileMenuOpened && (
         <div className="modal__content-header">
-          <button onClick={toggleMobileMenu} className="modal__close-btn">
-            <img src={close} alt="Close button" className="modal__close-btn" />
+          <button onClick={toggleMobileMenu} className="modal__close">
+            <img src={close} alt="Close button" className="modal__close" />
           </button>
 
           <div className="header__user-container">

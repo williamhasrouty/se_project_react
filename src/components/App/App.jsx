@@ -33,7 +33,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
 
   const handleToggleSwitchChange = () => {
-    setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F"); //if...else condition
+    setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
   const handleCardClick = (card) => {
@@ -53,11 +53,10 @@ function App() {
       imageUrl: inputValues.link,
       weather: inputValues.weatherType,
     };
-    // Dont use newCardData
     // the ID will be included in the response data
     addItem(newCardData)
       .then((createdItem) => {
-        setClothingItems([...clothingItems, createdItem]);
+        setClothingItems([createdItem, ...clothingItems]);
         closeActiveModal();
       })
       .catch((err) => {
@@ -146,6 +145,7 @@ function App() {
                   <Profile
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    handleAddClick={handleAddClick}
                   />
                 }
               />

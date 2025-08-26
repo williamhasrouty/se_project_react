@@ -31,6 +31,7 @@
   border: none;
   background-color: transparent;
   padding: 0;
+  cursor: pointer;
 }
 
 .modal__content-form {
@@ -88,10 +89,15 @@
 .modal__submit {
   border: none;
   color: #fff;
-  background-color: #0000004d;
+  background-color: #000000;
   border-radius: 4px;
   padding: 8px 16px;
   max-width: 124px;
   gap: 8px;
   margin-top: 32px;
+  cursor: pointer;
+}
+
+.modal__submit:hover {
+  background-color: #00000099;
 }
