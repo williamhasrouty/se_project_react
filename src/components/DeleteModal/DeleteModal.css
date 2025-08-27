@@ -1,0 +1,48 @@
+.delete-modal {
+  position: fixed;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.delete-modal__content {
+  display: flex;
+  justify-content: center;
+  width: 670px;
+  height: 280px;
+  background-color: white;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #0000004d;
+  border-radius: 20px;
+}
+
+.delete__message {
+  text-align: center;
+  margin: 0 0 40px;
+}
+
+.delete-confirm__btn {
+  border: none;
+  background: transparent;
+  margin: 0 0 24px;
+  color: #ff4d00;
+  cursor: pointer;
+  padding: 0;
+}
+
+.delete-confirm__btn:hover {
+  opacity: 0.7;
+}
+
+.delete__cancel {
+  border: none;
+  color: #000;
+  background: transparent;
+  margin: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.delete__cancel:hover {
+  opacity: 0.7;
+}

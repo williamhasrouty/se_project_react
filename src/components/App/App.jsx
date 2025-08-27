@@ -12,6 +12,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../Profile/Profile";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 import { getItems, addItem, deleteItem } from "../../utils/api";
 
@@ -43,6 +44,10 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
+  };
+
+  const handleDeleteClick = () => {
+    setActiveModal("delete");
   };
 
   const onAddItem = (inputValues) => {
@@ -163,7 +168,13 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           onClose={closeActiveModal}
+          onDeleteClick={handleDeleteClick}
+        />
+        <DeleteModal
+          card={selectedCard}
+          onClose={closeActiveModal}
           onDeleteItem={handleDeleteItem}
+          activeModal={activeModal}
         />
       </div>
     </CurrentTemperatureUnitContext.Provider>
