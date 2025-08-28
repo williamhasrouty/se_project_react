@@ -4,9 +4,16 @@ const headers = {
   "Content-Type": "application/json",
 };
 
+function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+}
+
 function getItems() {
   return fetch(`${baseUrl}/items`).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    return checkResponse(res);
   });
 }
 
@@ -16,7 +23,7 @@ function addItem({ name, imageUrl, weather }) {
     headers: headers,
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    return checkResponse(res);
   });
 }
 
@@ -25,7 +32,7 @@ function deleteItem(id) {
     method: "DELETE",
     headers: headers,
   }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+    return checkResponse(res);
   });
 }
 

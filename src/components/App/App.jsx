@@ -1,8 +1,16 @@
+// React components
+
 import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+
+// Utils/API
 import { coordinates, apiKey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
+import { getItems, addItem, deleteItem } from "../../utils/api";
+
+// Components
+
 import "./App.css";
 import "../../vendor/fonts.css";
 import Header from "../Header/Header";
@@ -13,8 +21,6 @@ import Profile from "../Profile/Profile";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
-
-import { getItems, addItem, deleteItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -55,7 +61,7 @@ function App() {
     // .then(res)... includes all the stuff below
     const newCardData = {
       name: inputValues.name,
-      imageUrl: inputValues.link,
+      imageUrl: inputValues.imageUrl,
       weather: inputValues.weatherType,
     };
     // the ID will be included in the response data
@@ -91,8 +97,8 @@ function App() {
         setWeatherData(filteredData);
         setIsWeatherDataLoaded(true);
       })
-      .catch((error) => {
-        console.error("Failed to fetch weather data:", error);
+      .catch((err) => {
+        console.error("Failed to fetch weather data:", err);
       });
   }, []);
 
@@ -101,7 +107,9 @@ function App() {
       .then((data) => {
         setClothingItems(data);
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error("Error getting item:", err);
+      });
   }, []);
 
   useEffect(() => {
@@ -140,7 +148,6 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    onDeleteItem={handleDeleteItem}
                   />
                 }
               />
