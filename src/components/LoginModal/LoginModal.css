@@ -1,10 +1,10 @@
-.register-modal {
+.login-modal {
   position: fixed;
   font-size: 20px;
   line-height: 24px;
 }
 
-.register-modal__content {
+.login-modal__content {
   position: relative;
   background-color: #ffffff;
   border: 1px solid #0000004d;
@@ -15,14 +15,14 @@
   border-radius: 20px;
 }
 
-.register-modal__title {
+.login-modal__title {
   margin: 0 0 24px;
   font-size: 24px;
   line-height: 28px;
   text-align: center;
 }
 
-.register-form {
+.login-form {
   display: flex;
   flex-direction: column;
   width: 100%;

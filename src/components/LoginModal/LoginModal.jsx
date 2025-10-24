@@ -10,28 +10,28 @@ function LoginModal({ onLogin, onClose, activeModal }) {
 
   return (
     <div className={`modal ${activeModal === "login" && "modal_opened"}`}>
-      <div className="register-modal">
-        <div className="register-modal__content">
+      <div className="login-modal">
+        <div className="login-modal__content">
           <button onClick={onClose} type="button" className="modal__close">
             <img src={closeBtn} alt="Close button" />
           </button>
-          <h2 className="register-modal__title">Sign in</h2>
-          <form onSubmit={handleSubmit} className="register-form">
+          <h2 className="login-modal__title">Sign in</h2>
+          <form onSubmit={handleSubmit} className="login-form">
             <input
               name="email"
               type="email"
               placeholder="Email"
-              className="register-form__input"
+              className="login-form__input"
               required
             />
             <input
               name="password"
               type="password"
               placeholder="Password"
-              className="register-form__input"
+              className="login-form__input"
               required
             />
-            <button type="submit" className="register-form__submit-btn">
+            <button type="submit" className="login-form__submit-btn">
               Sign in
             </button>
           </form>
