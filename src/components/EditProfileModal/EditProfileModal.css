@@ -1,0 +1,33 @@
+.modal_opened {
+  display: flex;
+}
+
+.register-modal {
+  position: fixed;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.register-modal__content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #0000004d;
+  padding: 28px 28px 36px;
+  max-width: 496px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.register-modal__title {
+  margin: 0 0 24px;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

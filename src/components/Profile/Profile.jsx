@@ -1,12 +1,23 @@
 import ClothesSection from "./ClothesSection/ClothesSection";
 import "./Profile.css";
 import SideBar from "./SideBar/SideBar";
+import { useState } from "react";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
-function Profile({ handleCardClick, clothingItems, handleAddClick }) {
+function Profile({
+  handleCardClick,
+  clothingItems,
+  handleAddClick,
+  onEditProfile,
+  onSignOut,
+  isEditProfileOpen,
+  onCloseEditProfile,
+  onUpdateUser,
+}) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <SideBar />
+        <SideBar onEditProfile={onEditProfile} onSignOut={onSignOut} />
       </section>
       <section className="profile__clothing-items">
         <ClothesSection
@@ -15,6 +26,11 @@ function Profile({ handleCardClick, clothingItems, handleAddClick }) {
           handleAddClick={handleAddClick}
         />
       </section>
+      <EditProfileModal
+        isOpen={isEditProfileOpen}
+        onClose={onCloseEditProfile}
+        onUpdateUser={onUpdateUser}
+      />
     </div>
   );
 }
