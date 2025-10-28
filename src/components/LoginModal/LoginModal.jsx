@@ -19,14 +19,22 @@ function LoginModal({ onLogin, onClose, activeModal }) {
           </button>
           <h2 className="login-modal__title">Log in</h2>
           <form onSubmit={handleSubmit} className="login-form">
+            <label htmlFor="login-email" className="login-form__label">
+              Email
+            </label>
             <input
+              id="login-email"
               name="email"
               type="email"
               placeholder="Email"
               className="login-form__input"
               required
             />
+            <label htmlFor="login-password" className="login-form__label">
+              Password
+            </label>
             <input
+              id="login-password"
               name="password"
               type="password"
               placeholder="Password"

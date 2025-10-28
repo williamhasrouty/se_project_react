@@ -145,9 +145,7 @@ function App() {
       : "";
 
   const handleModalClose = () => {
-    // clear local modal state
     setActiveModal("");
-    // if modal was opened via route, navigate away to the public main route
     if (normalizedPath === "/register" || normalizedPath === "/login") {
       navigate("/", { replace: true });
     }
@@ -201,7 +199,7 @@ function App() {
     }
   }, []);
 
-  // Registration handler: sign up then sign in automatically
+  
   const handleRegister = ({ name, avatar, email, password }) => {
     signup({ name, avatar, email, password })
       .then(() => signin({ email, password }))
@@ -216,7 +214,6 @@ function App() {
       .then((user) => {
         setCurrentUser(user);
         closeActiveModal();
-        // After successful registration + auto-login, navigate to the public main page
         navigate("/", { replace: true });
       })
       .catch((err) => {
@@ -237,7 +234,6 @@ function App() {
       .then((user) => {
         setCurrentUser(user);
         closeActiveModal();
-        // After successful login, navigate to the public main page
         navigate("/", { replace: true });
       })
       .catch((err) => {
