@@ -1,7 +1,6 @@
 import ClothesSection from "./ClothesSection/ClothesSection";
 import "./Profile.css";
 import SideBar from "./SideBar/SideBar";
-import { useState } from "react";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 function Profile({

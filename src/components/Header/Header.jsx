@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
-import avatar from "../../assets/avatar.svg";
 import menu from "../../assets/menu.svg";
 import close from "../../assets/close-dark.svg";
 
@@ -21,6 +20,7 @@ function Header({ handleAddClick, weatherData }) {
   }
   // Helper for avatar/placeholder
   const renderAvatar = () => {
+    if (!currentUser) return null;
     if (currentUser && currentUser.avatar) {
       return (
         <img
@@ -36,9 +36,7 @@ function Header({ handleAddClick, weatherData }) {
         </div>
       );
     } else {
-      return (
-        <img src={avatar} alt="Default Avatar" className="header__avatar" />
-      );
+      return null;
     }
   };
 
@@ -58,13 +56,15 @@ function Header({ handleAddClick, weatherData }) {
       )}
 
       <ToggleSwitch />
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
-      >
-        + Add clothes
-      </button>
+      {currentUser && (
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="header__add-clothes-btn"
+        >
+          + Add clothes
+        </button>
+      )}
 
       {currentUser ? (
         <Link to="/profile" className="header__link">
@@ -74,12 +74,17 @@ function Header({ handleAddClick, weatherData }) {
           </div>
         </Link>
       ) : (
-        <Link to="/login" className="header__link">
-          <div className="header__user-container">
-            <p className="header__username">Sign in</p>
-            <img src={avatar} alt="Default Avatar" className="header__avatar" />
-          </div>
-        </Link>
+        <div className="header__auth-links">
+          <Link to="/register" className="header__signup-link">
+            Sign up
+          </Link>
+          <Link to="/login" className="header__link">
+            <div className="header__user-container">
+              <p className="header__username">Log in</p>
+              {renderAvatar()}
+            </div>
+          </Link>
+        </div>
       )}
 
       <button
@@ -100,13 +105,25 @@ function Header({ handleAddClick, weatherData }) {
             </p>
             {renderAvatar()}
           </div>
-          <button
-            onClick={handleAddClick}
-            type="button"
-            className="header__add-clothes-btn modal__add-clothes-btn"
-          >
-            + Add clothes
-          </button>
+          {!currentUser && (
+            <div className="header__mobile-auth">
+              <Link
+                to="/register"
+                className="header__signup-link modal__signup-link"
+              >
+                Sign up
+              </Link>
+            </div>
+          )}
+          {currentUser && (
+            <button
+              onClick={handleAddClick}
+              type="button"
+              className="header__add-clothes-btn modal__add-clothes-btn"
+            >
+              + Add clothes
+            </button>
+          )}
         </div>
       )}
     </header>

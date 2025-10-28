@@ -1,8 +1,13 @@
 // React components
 
 import { useEffect, useState } from "react";
-import { BrowserRouter, Navigate } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import {
+  useNavigate,
+  useLocation,
+  Navigate,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 // Utils/API
 import { coordinates, apiKey } from "../../utils/constants";
@@ -35,6 +40,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import updateUser from "../../utils/updateUser";
 
 function App() {
+  const navigate = useNavigate();
   const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
@@ -51,7 +57,7 @@ function App() {
   const [token, setToken] = useState(null);
   const [selectedCard, setSelectedCard] = useState({});
   const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
-  
+
   // Edit profile modal handlers
   const handleEditProfile = () => setIsEditProfileOpen(true);
   const handleCloseEditProfile = () => setIsEditProfileOpen(false);
@@ -127,6 +133,26 @@ function App() {
     setActiveModal("");
   };
 
+  const location = useLocation();
+  // derive modal from route when route matches, but allow explicit activeModal to take precedence
+  // normalize pathname (strip trailing slash) so /login/ also matches
+  const normalizedPath = location.pathname.replace(/\/+$/, "");
+  const routeModal =
+    normalizedPath === "/register"
+      ? "register"
+      : normalizedPath === "/login"
+      ? "login"
+      : "";
+
+  const handleModalClose = () => {
+    // clear local modal state
+    setActiveModal("");
+    // if modal was opened via route, navigate away to the public main route
+    if (normalizedPath === "/register" || normalizedPath === "/login") {
+      navigate("/", { replace: true });
+    }
+  };
+
   useEffect(() => {
     getWeather(coordinates, apiKey)
       .then((data) => {
@@ -190,6 +216,8 @@ function App() {
       .then((user) => {
         setCurrentUser(user);
         closeActiveModal();
+        // After successful registration + auto-login, navigate to the public main page
+        navigate("/", { replace: true });
       })
       .catch((err) => {
         console.error("Registration/Login failed:", err);
@@ -209,6 +237,8 @@ function App() {
       .then((user) => {
         setCurrentUser(user);
         closeActiveModal();
+        // After successful login, navigate to the public main page
+        navigate("/", { replace: true });
       })
       .catch((err) => {
         console.error("Login failed:", err);
@@ -228,10 +258,10 @@ function App() {
   };
 
   useEffect(() => {
-    if (!activeModal) return;
+    if (!activeModal && !routeModal) return;
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
-        closeActiveModal();
+        handleModalClose();
       }
     };
 
@@ -240,7 +270,7 @@ function App() {
     return () => {
       document.removeEventListener("keydown", handleEscClose);
     };
-  }, [activeModal]);
+  }, [activeModal, routeModal]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -249,82 +279,73 @@ function App() {
       >
         <div className="page">
           <div className="page__content">
-            <BrowserRouter>
-              <Header
-                handleAddClick={handleAddClick}
-                weatherData={
-                  isWeatherDataLoaded ? weatherData : { city: "Loading..." }
+            <Header
+              handleAddClick={handleAddClick}
+              weatherData={
+                isWeatherDataLoaded ? weatherData : { city: "Loading..." }
+              }
+            />
+            <Routes>
+              <Route
+                path="/register"
+                element={
+                  <RegisterModal
+                    activeModal={activeModal || routeModal}
+                    onClose={handleModalClose}
+                    onRegister={handleRegister}
+                  />
                 }
               />
-              <Routes>
-                <Route
-                  path="/register"
-                  element={
-                    <RegisterModal
-                      activeModal={activeModal}
-                      onClose={closeActiveModal}
-                      onRegister={handleRegister}
-                    />
-                  }
-                />
-                <Route
-                  path="/login"
-                  element={
-                    <LoginModal
-                      activeModal={activeModal}
-                      onClose={closeActiveModal}
-                      onLogin={handleLogin}
-                    />
-                  }
-                />
-                <Route
-                  path="/"
-                  element={
-                    <ProtectedRoute isLoggedIn={isLoggedIn}>
-                      <Navigate to="/profile" replace />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/main"
-                  element={
-                    <Main
-                      weatherData={weatherData}
+              <Route
+                path="/login"
+                element={
+                  <LoginModal
+                    activeModal={activeModal || routeModal}
+                    onClose={handleModalClose}
+                    onLogin={handleLogin}
+                  />
+                }
+              />
+              <Route
+                path="/"
+                element={
+                  <Main
+                    weatherData={weatherData}
+                    handleCardClick={handleCardClick}
+                    clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
+                  />
+                }
+              />
+              <Route path="/main" element={<Navigate to="/" replace />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                    <Profile
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}
-                      onCardLike={handleCardLike}
+                      handleAddClick={handleAddClick}
+                      onEditProfile={handleEditProfile}
+                      onSignOut={handleSignOut}
+                      isEditProfileOpen={isEditProfileOpen}
+                      onCloseEditProfile={handleCloseEditProfile}
+                      onUpdateUser={handleUpdateUser}
                     />
-                  }
-                />
-                <Route
-                  path="/profile"
-                  element={
-                    <ProtectedRoute isLoggedIn={isLoggedIn}>
-                      <Profile
-                        handleCardClick={handleCardClick}
-                        clothingItems={clothingItems}
-                        handleAddClick={handleAddClick}
-                        onEditProfile={handleEditProfile}
-                        onSignOut={handleSignOut}
-                        isEditProfileOpen={isEditProfileOpen}
-                        onCloseEditProfile={handleCloseEditProfile}
-                        onUpdateUser={handleUpdateUser}
-                      />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="*"
-                  element={
-                    isLoggedIn ? (
-                      <Navigate to="/profile" replace />
-                    ) : (
-                      <Navigate to="/login" replace />
-                    )
-                  }
-                />
-              </Routes>
-            </BrowserRouter>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  isLoggedIn ? (
+                    <Navigate to="/profile" replace />
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
+                }
+              />
+            </Routes>
 
             <Footer />
           </div>

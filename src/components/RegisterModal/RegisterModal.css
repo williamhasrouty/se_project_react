@@ -1,7 +1,22 @@
-.register-modal {
+/* Modal overlay and centering */
+.modal {
   position: fixed;
-  font-size: 20px;
-  line-height: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0000004d;
+  visibility: hidden;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal_opened {
+  visibility: visible;
+  transition: opacity 1s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .register-modal__content {
@@ -11,19 +26,77 @@
   padding: 28px 28px 36px;
   max-width: 496px;
   box-sizing: border-box;
-  width: 100%;
+  width: 496px;
   border-radius: 20px;
+  font-size: 16px;
 }
 
 .register-modal__title {
   margin: 0 0 24px;
-  font-size: 24px;
-  line-height: 28px;
-  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: left;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
 }
 
 .register-form {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.register-modal__button-row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.register-form__input {
+  display: block;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  border-bottom: solid 1px;
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 0;
+}
+
+.register-form__input::placeholder {
+  color: #00000080;
+  font-size: 16px;
+}
+
+.register-form__submit-btn {
+  border: none;
+  color: #fff;
+  background-color: #000000;
+  border-radius: 4px;
+  padding: 8px 16px;
+  max-width: 124px;
+  cursor: pointer;
+}
+
+.register-form__submit-btn:hover {
+  background-color: #00000099;
+}
+
+.register-modal__login-btn {
+  border: none;
+  background: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
 }

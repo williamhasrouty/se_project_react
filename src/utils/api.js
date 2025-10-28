@@ -58,4 +58,11 @@ function deleteItem(id, token) {
   }).then((res) => checkResponse(res));
 }
 
-export { getItems, addItem, deleteItem, addCardLike, removeCardLike };
+export {
+  getItems,
+  addItem,
+  deleteItem,
+  addCardLike,
+  removeCardLike,
+  checkResponse,
+};

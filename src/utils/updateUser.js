@@ -1,3 +1,5 @@
+import { checkResponse } from "./api";
+
 function updateUser({ name, avatar }, token) {
   const baseUrl = "http://localhost:3001";
   const defaultHeaders = {
@@ -10,10 +12,7 @@ function updateUser({ name, avatar }, token) {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  }).then((res) => {
-    if (res.ok) return res.json();
-    return Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(checkResponse);
 }
 
 export default updateUser;

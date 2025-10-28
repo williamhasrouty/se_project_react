@@ -19,11 +19,11 @@ export const weatherOptions = [
     condition: "clear",
     url: new URL("../assets/night/clear.svg", import.meta.url),
   },
-  {
-    day: false,
-    condition: "clouds",
-    url: new URL("../assets/night/cloudy.svg", import.meta.url),
-  },
+  // {
+  //   day: false,
+  //   condition: "clouds",
+  //   url: new URL("../assets/night/cloudy.svg", import.meta.url),
+  // },
 ];
 
 export const defaultWeatherOptions = {

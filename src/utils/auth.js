@@ -1,20 +1,17 @@
+import { checkResponse } from "./api";
+
 const baseUrl = "http://localhost:3001";
 
 const defaultHeaders = {
   "Content-Type": "application/json",
 };
 
-function checkResponse(res) {
-  if (res.ok) return res.json();
-  return Promise.reject(`Error: ${res.status}`);
-}
-
 function signup({ name, avatar, email, password }) {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: defaultHeaders,
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then((res) => checkResponse(res));
+  }).then(checkResponse);
 }
 
 function signin({ email, password }) {
@@ -22,7 +19,7 @@ function signin({ email, password }) {
     method: "POST",
     headers: defaultHeaders,
     body: JSON.stringify({ email, password }),
-  }).then((res) => checkResponse(res));
+  }).then(checkResponse);
 }
 
 function getUser(token) {
@@ -32,7 +29,7 @@ function getUser(token) {
       ...defaultHeaders,
       authorization: `Bearer ${token}`,
     },
-  }).then((res) => checkResponse(res));
+  }).then(checkResponse);
 }
 
 export { signup, signin, getUser };

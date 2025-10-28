@@ -3,7 +3,7 @@ import closeBtn from "../../assets/close.svg";
 
 function DeleteModal({ onDeleteItem, card, onClose, activeModal }) {
   return (
-    <div className={`modal ${activeModal === "delete" && "modal_opened"}`}>
+    <div className={`modal ${activeModal === "delete" ? "modal_opened" : ""}`}>
       <div className="delete-modal">
         <div className="delete-modal__content">
           <button onClick={onClose} type="button" className="modal__close">

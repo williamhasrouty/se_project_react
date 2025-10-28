@@ -1,12 +1,14 @@
 import "./RegisterModal.css";
 import closeBtn from "../../assets/close.svg";
+import { useNavigate } from "react-router-dom";
 
 function RegisterModal({ onRegister, onClose, activeModal }) {
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { username, avatar, email, password } = e.target.elements;
+    const { name, avatar, email, password } = e.target.elements;
     onRegister({
-      name: username.value,
+      name: name.value,
       avatar: avatar.value,
       email: email.value,
       password: password.value,
@@ -14,7 +16,9 @@ function RegisterModal({ onRegister, onClose, activeModal }) {
   };
 
   return (
-    <div className={`modal ${activeModal === "register" && "modal_opened"}`}>
+    <div
+      className={`modal ${activeModal === "register" ? "modal_opened" : ""}`}
+    >
       <div className="register-modal">
         <div className="register-modal__content">
           <button onClick={onClose} type="button" className="modal__close">
@@ -50,9 +54,18 @@ function RegisterModal({ onRegister, onClose, activeModal }) {
               className="register-form__input"
               required
             />
-            <button type="submit" className="register-form__submit-btn">
-              Next
-            </button>
+            <div className="register-modal__button-row">
+              <button type="submit" className="register-form__submit-btn">
+                Next
+              </button>
+              <button
+                type="button"
+                className="register-modal__login-btn"
+                onClick={() => navigate("/login")}
+              >
+                or Log in
+              </button>
+            </div>
           </form>
         </div>
       </div>
