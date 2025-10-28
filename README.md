@@ -38,6 +38,4 @@
 
 ** Live Demo **
 Check out the live application here: https://williamhasrouty.github.io/se_project_react/
-https://williamhasrouty.github.io/se_project_express/
-
-
+https://github.com/williamhasrouty/se_project_express
