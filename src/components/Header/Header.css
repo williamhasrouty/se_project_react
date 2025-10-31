@@ -40,6 +40,9 @@
 .header__link {
   text-decoration: none;
   color: #000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .header__auth-links {
@@ -51,7 +54,11 @@
 .header__signup-link {
   text-decoration: none;
   color: #000;
-  font-size: 20px; 
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .toggle-switch {
@@ -105,7 +112,7 @@
   gap: 10px;
 }
 
-.modal__content-header .header__avatar {
+.header__avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;

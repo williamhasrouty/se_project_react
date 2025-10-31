@@ -7,7 +7,7 @@ import logo from "../../assets/logo.svg";
 import menu from "../../assets/menu.svg";
 import close from "../../assets/close-dark.svg";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
   const currentUser = useContext(CurrentUserContext);
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   const currentDate = new Date().toLocaleString("default", {
@@ -75,15 +75,23 @@ function Header({ handleAddClick, weatherData }) {
         </Link>
       ) : (
         <div className="header__auth-links">
-          <Link to="/register" className="header__signup-link">
+          <button
+            type="button"
+            onClick={onOpenRegister}
+            className="header__signup-link"
+          >
             Sign up
-          </Link>
-          <Link to="/login" className="header__link">
+          </button>
+          <button
+            type="button"
+            onClick={onOpenLogin}
+            className="header__link header__login-btn"
+          >
             <div className="header__user-container">
               <p className="header__username">Log in</p>
               {renderAvatar()}
             </div>
-          </Link>
+          </button>
         </div>
       )}
 
@@ -107,12 +115,16 @@ function Header({ handleAddClick, weatherData }) {
           </div>
           {!currentUser && (
             <div className="header__mobile-auth">
-              <Link
-                to="/register"
+              <button
+                type="button"
+                onClick={() => {
+                  onOpenRegister && onOpenRegister();
+                  toggleMobileMenu();
+                }}
                 className="header__signup-link modal__signup-link"
               >
                 Sign up
-              </Link>
+              </button>
             </div>
           )}
           {currentUser && (

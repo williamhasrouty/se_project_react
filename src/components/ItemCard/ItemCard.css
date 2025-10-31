@@ -23,9 +23,45 @@
   border: 1px solid #0000004d;
 }
 
+.card__like-btn {
+  position: absolute;
+  top: 6px;
+  right: 40px;
+  background: transparent;
+  border: none;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer; */
+
 @media screen and (max-width: 627px) {
   .card {
     width: 164px;
     height: 164px;
+  }
+  .card__like-btn {
+    top: 8px;
+    right: 8px;
+    padding: 4px;
+  }
+  .card__heart {
+    width: 16px;
+    height: 16px;
   }
 }

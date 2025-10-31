@@ -1,3 +1,12 @@
+// Check response helper
+
+function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+}
+
 // Add like to a card
 function addCardLike(id, token) {
   return fetch(`${baseUrl}/items/${id}/likes`, {
@@ -24,13 +33,6 @@ const baseUrl = "http://localhost:3001";
 const defaultHeaders = {
   "Content-Type": "application/json",
 };
-
-function checkResponse(res) {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-}
 
 function getItems() {
   // Public endpoint

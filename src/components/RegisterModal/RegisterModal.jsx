@@ -1,9 +1,7 @@
 import "./RegisterModal.css";
 import closeBtn from "../../assets/close.svg";
-import { useNavigate } from "react-router-dom";
 
-function RegisterModal({ onRegister, onClose, activeModal }) {
-  const navigate = useNavigate();
+function RegisterModal({ onRegister, onClose, activeModal, setActiveModal }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, avatar, email, password } = e.target.elements;
@@ -77,7 +75,7 @@ function RegisterModal({ onRegister, onClose, activeModal }) {
               <button
                 type="button"
                 className="register-modal__login-btn"
-                onClick={() => navigate("/login")}
+                onClick={() => setActiveModal("login")}
               >
                 or Log in
               </button>

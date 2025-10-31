@@ -1,13 +1,7 @@
 // React components
 
 import { useEffect, useState } from "react";
-import {
-  useNavigate,
-  useLocation,
-  Navigate,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { useNavigate, Navigate, Routes, Route } from "react-router-dom";
 
 // Utils/API
 import { coordinates, apiKey } from "../../utils/constants";
@@ -36,7 +30,7 @@ import AddItemModal from "../AddItemModal/AddItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+// ProtectedRoute now handles routing/authorization internally
 import updateUser from "../../utils/updateUser";
 
 function App() {
@@ -133,22 +127,8 @@ function App() {
     setActiveModal("");
   };
 
-  const location = useLocation();
-  // derive modal from route when route matches, but allow explicit activeModal to take precedence
-  // normalize pathname (strip trailing slash) so /login/ also matches
-  const normalizedPath = location.pathname.replace(/\/+$/, "");
-  const routeModal =
-    normalizedPath === "/register"
-      ? "register"
-      : normalizedPath === "/login"
-      ? "login"
-      : "";
-
   const handleModalClose = () => {
     setActiveModal("");
-    if (normalizedPath === "/register" || normalizedPath === "/login") {
-      navigate("/", { replace: true });
-    }
   };
 
   useEffect(() => {
@@ -169,7 +149,7 @@ function App() {
         setClothingItems(data);
       })
       .catch((err) => {
-        console.error("Error getting item:", err);
+        console.error("Failed to fetch clothing items:", err);
       });
   }, []);
 
@@ -199,7 +179,6 @@ function App() {
     }
   }, []);
 
-  
   const handleRegister = ({ name, avatar, email, password }) => {
     signup({ name, avatar, email, password })
       .then(() => signin({ email, password }))
@@ -250,11 +229,16 @@ function App() {
           cards.map((item) => (item._id === id ? updatedCard : item))
         );
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>
+        console.error(
+          "Failed to update like status for card (id: " + id + "):",
+          err
+        )
+      );
   };
 
   useEffect(() => {
-    if (!activeModal && !routeModal) return;
+    if (!activeModal) return;
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
         handleModalClose();
@@ -266,7 +250,7 @@ function App() {
     return () => {
       document.removeEventListener("keydown", handleEscClose);
     };
-  }, [activeModal, routeModal]);
+  }, [activeModal]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -280,28 +264,11 @@ function App() {
               weatherData={
                 isWeatherDataLoaded ? weatherData : { city: "Loading..." }
               }
+              onOpenRegister={() => setActiveModal("register")}
+              onOpenLogin={() => setActiveModal("login")}
             />
+
             <Routes>
-              <Route
-                path="/register"
-                element={
-                  <RegisterModal
-                    activeModal={activeModal || routeModal}
-                    onClose={handleModalClose}
-                    onRegister={handleRegister}
-                  />
-                }
-              />
-              <Route
-                path="/login"
-                element={
-                  <LoginModal
-                    activeModal={activeModal || routeModal}
-                    onClose={handleModalClose}
-                    onLogin={handleLogin}
-                  />
-                }
-              />
               <Route
                 path="/"
                 element={
@@ -313,22 +280,20 @@ function App() {
                   />
                 }
               />
-              <Route path="/main" element={<Navigate to="/" replace />} />
+
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute isLoggedIn={isLoggedIn}>
-                    <Profile
-                      handleCardClick={handleCardClick}
-                      clothingItems={clothingItems}
-                      handleAddClick={handleAddClick}
-                      onEditProfile={handleEditProfile}
-                      onSignOut={handleSignOut}
-                      isEditProfileOpen={isEditProfileOpen}
-                      onCloseEditProfile={handleCloseEditProfile}
-                      onUpdateUser={handleUpdateUser}
-                    />
-                  </ProtectedRoute>
+                  <Profile
+                    handleCardClick={handleCardClick}
+                    clothingItems={clothingItems}
+                    handleAddClick={handleAddClick}
+                    onEditProfile={handleEditProfile}
+                    onSignOut={handleSignOut}
+                    isEditProfileOpen={isEditProfileOpen}
+                    onCloseEditProfile={handleCloseEditProfile}
+                    onUpdateUser={handleUpdateUser}
+                  />
                 }
               />
               <Route
@@ -361,6 +326,18 @@ function App() {
             onClose={closeActiveModal}
             onDeleteItem={handleDeleteItem}
             activeModal={activeModal}
+          />
+          <RegisterModal
+            activeModal={activeModal}
+            setActiveModal={setActiveModal}
+            onClose={handleModalClose}
+            onRegister={handleRegister}
+          />
+          <LoginModal
+            activeModal={activeModal}
+            setActiveModal={setActiveModal}
+            onClose={handleModalClose}
+            onLogin={handleLogin}
           />
         </div>
       </CurrentTemperatureUnitContext.Provider>

@@ -1,6 +1,6 @@
 import "./SideBar.css";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import avatar from "../../../assets/avatar.svg";
@@ -8,8 +8,10 @@ import avatar from "../../../assets/avatar.svg";
 function SideBar({ onEditProfile, onSignOut }) {
   const currentUser = useContext(CurrentUserContext);
   const navigate = useNavigate();
+  useEffect(() => {
+    console.debug("SideBar mounted. currentUser:", currentUser);
+  }, [currentUser]);
   const handleSignOutClick = () => {
-    // clear auth state in parent, then navigate to main page
     if (onSignOut) onSignOut();
     navigate("/", { replace: true });
   };
@@ -36,16 +38,21 @@ function SideBar({ onEditProfile, onSignOut }) {
   };
   return (
     <div className="sidebar">
-      {renderAvatar()}
-      <p className="sidebar__username">
-        {currentUser ? currentUser.name : "User"}
-      </p>
-      <button className="sidebar__edit-btn" onClick={onEditProfile}>
-        Edit profile
-      </button>
-      <button className="sidebar__signout-btn" onClick={handleSignOutClick}>
-        Sign out
-      </button>
+      <div className="sidebar__top">
+        {renderAvatar()}
+        <p className="sidebar__username">
+          {currentUser ? currentUser.name : "User"}
+        </p>
+      </div>
+
+      <div className="sidebar__buttons">
+        <button className="sidebar__edit-btn" onClick={onEditProfile}>
+          Change profile data
+        </button>
+        <button className="sidebar__signout-btn" onClick={handleSignOutClick}>
+          Log out
+        </button>
+      </div>
     </div>
   );
 }
