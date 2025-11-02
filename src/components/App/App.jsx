@@ -26,11 +26,11 @@ import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../Profile/Profile";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
-// ProtectedRoute now handles routing/authorization internally
 import updateUser from "../../utils/updateUser";
 
 function App() {
@@ -284,16 +284,21 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <Profile
-                    handleCardClick={handleCardClick}
-                    clothingItems={clothingItems}
-                    handleAddClick={handleAddClick}
-                    onEditProfile={handleEditProfile}
-                    onSignOut={handleSignOut}
-                    isEditProfileOpen={isEditProfileOpen}
-                    onCloseEditProfile={handleCloseEditProfile}
-                    onUpdateUser={handleUpdateUser}
-                  />
+                  <ProtectedRoute
+                    isLoggedIn={isLoggedIn}
+                    onLoginRequired={() => setActiveModal("login")}
+                  >
+                    <Profile
+                      handleCardClick={handleCardClick}
+                      clothingItems={clothingItems}
+                      handleAddClick={handleAddClick}
+                      onEditProfile={handleEditProfile}
+                      onSignOut={handleSignOut}
+                      isEditProfileOpen={isEditProfileOpen}
+                      onCloseEditProfile={handleCloseEditProfile}
+                      onUpdateUser={handleUpdateUser}
+                    />
+                  </ProtectedRoute>
                 }
               />
               <Route
