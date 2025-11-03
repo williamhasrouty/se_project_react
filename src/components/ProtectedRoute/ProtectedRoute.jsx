@@ -1,10 +1,8 @@
 import { Navigate } from "react-router-dom";
 
-function ProtectedRoute({ isLoggedIn, children, onLoginRequired }) {
+function ProtectedRoute({ isLoggedIn, children }) {
   if (!isLoggedIn) {
-    // Show login modal and redirect to home
-    if (onLoginRequired) onLoginRequired();
-    return <Navigate to="/" replace />;
+    return <Navigate to="/profile" replace />;
   }
   return children;
 }

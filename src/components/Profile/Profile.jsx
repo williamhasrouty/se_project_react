@@ -7,6 +7,7 @@ function Profile({
   handleCardClick,
   clothingItems,
   handleAddClick,
+  onCardLike,
   onEditProfile,
   onSignOut,
   isEditProfileOpen,
@@ -22,6 +23,7 @@ function Profile({
         <ClothesSection
           handleCardClick={handleCardClick}
           clothingItems={clothingItems}
+          onCardLike={onCardLike}
           handleAddClick={handleAddClick}
         />
       </section>

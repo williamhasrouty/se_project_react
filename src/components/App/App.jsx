@@ -284,12 +284,10 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectedRoute
-                    isLoggedIn={isLoggedIn}
-                    onLoginRequired={() => setActiveModal("login")}
-                  >
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
                       handleCardClick={handleCardClick}
+                      onCardLike={handleCardLike}
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
                       onEditProfile={handleEditProfile}
