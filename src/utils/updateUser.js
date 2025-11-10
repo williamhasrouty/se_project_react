@@ -1,11 +1,11 @@
 import { checkResponse } from "./api";
+import { BASE_URL } from "./constants.js";
 
 function updateUser({ name, avatar }, token) {
-  const baseUrl = "http://localhost:3001";
   const defaultHeaders = {
     "Content-Type": "application/json",
   };
-  return fetch(`${baseUrl}/users/me`, {
+  return fetch(`${BASE_URL}/users/me`, {
     method: "PATCH",
     headers: {
       ...defaultHeaders,

@@ -1,13 +1,12 @@
 import { checkResponse } from "./api";
-
-const baseUrl = "http://localhost:3001";
+import { BASE_URL } from "./constants.js";
 
 const defaultHeaders = {
   "Content-Type": "application/json",
 };
 
 function signup({ name, avatar, email, password }) {
-  return fetch(`${baseUrl}/signup`, {
+  return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: defaultHeaders,
     body: JSON.stringify({ name, avatar, email, password }),
@@ -15,7 +14,7 @@ function signup({ name, avatar, email, password }) {
 }
 
 function signin({ email, password }) {
-  return fetch(`${baseUrl}/signin`, {
+  return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     headers: defaultHeaders,
     body: JSON.stringify({ email, password }),
@@ -23,7 +22,7 @@ function signin({ email, password }) {
 }
 
 function getUser(token) {
-  return fetch(`${baseUrl}/users/me`, {
+  return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
       ...defaultHeaders,

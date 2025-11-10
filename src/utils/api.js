@@ -1,3 +1,5 @@
+import { BASE_URL } from "./constants.js";
+
 // Check response helper
 
 function checkResponse(res) {
@@ -9,7 +11,7 @@ function checkResponse(res) {
 
 // Add like to a card
 function addCardLike(id, token) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       ...defaultHeaders,
@@ -20,7 +22,7 @@ function addCardLike(id, token) {
 
 // Remove like from a card
 function removeCardLike(id, token) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       ...defaultHeaders,
@@ -28,7 +30,6 @@ function removeCardLike(id, token) {
     },
   }).then((res) => checkResponse(res));
 }
-const baseUrl = "http://localhost:3001";
 
 const defaultHeaders = {
   "Content-Type": "application/json",
@@ -36,14 +37,14 @@ const defaultHeaders = {
 
 function getItems() {
   // Public endpoint
-  return fetch(`${baseUrl}/items`).then((res) => checkResponse(res));
+  return fetch(`${BASE_URL}/items`).then((res) => checkResponse(res));
 }
 
 function addItem({ name, imageUrl, weather }, token) {
   const headers = { ...defaultHeaders };
   if (token) headers.authorization = `Bearer ${token}`;
 
-  return fetch(`${baseUrl}/items`, {
+  return fetch(`${BASE_URL}/items`, {
     method: "POST",
     headers,
     body: JSON.stringify({ name, imageUrl, weather }),
@@ -54,7 +55,7 @@ function deleteItem(id, token) {
   const headers = { ...defaultHeaders };
   if (token) headers.authorization = `Bearer ${token}`;
 
-  return fetch(`${baseUrl}/items/${id}`, {
+  return fetch(`${BASE_URL}/items/${id}`, {
     method: "DELETE",
     headers,
   }).then((res) => checkResponse(res));
