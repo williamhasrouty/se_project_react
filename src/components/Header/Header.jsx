@@ -80,7 +80,7 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
             onClick={onOpenRegister}
             className="header__signup-link"
           >
-            Register
+            Sign Up
           </button>
           <button
             type="button"
@@ -88,7 +88,7 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
             className="header__link header__login-btn"
           >
             <div className="header__user-container">
-              <p className="header__username">Sign in</p>
+              <p className="header__username">Log in</p>
               {renderAvatar()}
             </div>
           </button>
