@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useForm } from "../../hooks/useForm";
+import { useForm } from "../../utils/hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
