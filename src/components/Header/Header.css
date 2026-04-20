@@ -175,16 +175,25 @@
 .header__menu-open {
   width: 100%;
   max-width: 343px;
-  height: 208px;
+  min-height: 160px;
   background-color: #fff;
   background: white;
   z-index: 10000;
-  display: block;
-  border-radius: 10px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  position: fixed;
+  top: 80px;
+  right: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .header__menu-open .header__menu-btn {
+  display: none;
+}
+
+.header__menu-open .toggle-switch {
   display: none;
 }
 
@@ -192,29 +201,115 @@
   border: none;
   background-color: transparent;
   padding: 0;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   position: absolute;
-  right: 9px;
-  top: 9px;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
 }
 
 .modal__content-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
+  width: 100%;
+  padding-top: 16px;
 }
 
 .modal__content-header .header__user-container {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal__content-header .header__username {
+  color: #000000;
+  text-shadow: none;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
 }
 
 .header__avatar {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
+  object-fit: cover;
+}
+
+.header__avatar_placeholder {
+  background: linear-gradient(135deg, #4a90e2 0%, #7b68ee 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.header__mobile-auth {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.header__auth-btn {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.modal__signup-btn {
+  background: #000000;
+  color: #ffffff;
+}
+
+.modal__signup-btn:hover {
+  background: #333333;
+  transform: translateY(-1px);
+}
+
+.modal__login-btn {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.modal__login-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.modal__add-clothes-btn {
+  width: 100%;
+  color: #ffffff;
+  background: #000000;
+  border: none;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal__add-clothes-btn:hover {
+  background: #333333;
+  transform: translateY(-1px);
 }
 
 .modal__content-header .header__add-clothes-btn {

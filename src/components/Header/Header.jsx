@@ -105,15 +105,26 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
       {isMobileMenuOpened && (
         <div className="modal__content-header">
           <button onClick={toggleMobileMenu} className="modal__close">
-            <img src={close} alt="Close button" className="modal__close" />
+            <img src={close} alt="Close button" />
           </button>
-          <div className="header__user-container">
-            <p className="header__username">
-              {currentUser ? currentUser.name : "Sign in"}
-            </p>
-            {renderAvatar()}
-          </div>
-          {!currentUser && (
+          {currentUser ? (
+            <>
+              <div className="header__user-container">
+                <p className="header__username">{currentUser.name}</p>
+                {renderAvatar()}
+              </div>
+              <button
+                onClick={() => {
+                  handleAddClick();
+                  toggleMobileMenu();
+                }}
+                type="button"
+                className="header__add-clothes-btn modal__add-clothes-btn"
+              >
+                + Add clothes
+              </button>
+            </>
+          ) : (
             <div className="header__mobile-auth">
               <button
                 type="button"
@@ -121,20 +132,21 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
                   onOpenRegister && onOpenRegister();
                   toggleMobileMenu();
                 }}
-                className="header__signup-link modal__signup-link"
+                className="header__auth-btn modal__signup-btn"
               >
                 Sign up
               </button>
+              <button
+                type="button"
+                onClick={() => {
+                  onOpenLogin && onOpenLogin();
+                  toggleMobileMenu();
+                }}
+                className="header__auth-btn modal__login-btn"
+              >
+                Log in
+              </button>
             </div>
-          )}
-          {currentUser && (
-            <button
-              onClick={handleAddClick}
-              type="button"
-              className="header__add-clothes-btn modal__add-clothes-btn"
-            >
-              + Add clothes
-            </button>
           )}
         </div>
       )}
