@@ -41,116 +41,119 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
   };
 
   return (
-    <header
-      className={`header ${isMobileMenuOpened ? "header__menu-open" : ""}`}
-    >
-      {!isMobileMenuOpened && (
-        <>
-          <Link to="/">
-            <img className="header__logo" src={logo} alt="Header Logo" />
-          </Link>
-          <p className="header__date-and-location">
-            {currentDate}, {weatherData.city}
-          </p>
-        </>
-      )}
-
-      <ToggleSwitch />
-      {currentUser && (
-        <button
-          onClick={handleAddClick}
-          type="button"
-          className="header__add-clothes-btn"
-        >
-          + Add clothes
-        </button>
-      )}
-
-      {currentUser ? (
-        <Link to="/profile" className="header__link">
-          <div className="header__user-container">
-            <p className="header__username">{currentUser.name}</p>
-            {renderAvatar()}
-          </div>
+    <>
+      <header className="header">
+        <Link to="/">
+          <img className="header__logo" src={logo} alt="Header Logo" />
         </Link>
-      ) : (
-        <div className="header__auth-links">
+        <p className="header__date-and-location">
+          {currentDate}, {weatherData.city}
+        </p>
+
+        <ToggleSwitch />
+        {currentUser && (
           <button
+            onClick={handleAddClick}
             type="button"
-            onClick={onOpenRegister}
-            className="header__signup-link"
+            className="header__add-clothes-btn"
           >
-            Sign Up
+            + Add clothes
           </button>
-          <button
-            type="button"
-            onClick={onOpenLogin}
-            className="header__link header__login-btn"
-          >
+        )}
+
+        {currentUser ? (
+          <Link to="/profile" className="header__link">
             <div className="header__user-container">
-              <p className="header__username">Log in</p>
+              <p className="header__username">{currentUser.name}</p>
               {renderAvatar()}
             </div>
-          </button>
-        </div>
-      )}
-
-      <button
-        onClick={toggleMobileMenu}
-        className="header__menu-btn"
-        aria-label="Toggle menu"
-      >
-        <img src={menu} alt="App Menu" />
-      </button>
-      {isMobileMenuOpened && (
-        <div className="modal__content-header">
-          <button onClick={toggleMobileMenu} className="modal__close">
-            <img src={close} alt="Close button" />
-          </button>
-          {currentUser ? (
-            <>
+          </Link>
+        ) : (
+          <div className="header__auth-links">
+            <button
+              type="button"
+              onClick={onOpenRegister}
+              className="header__signup-link"
+            >
+              Sign Up
+            </button>
+            <button
+              type="button"
+              onClick={onOpenLogin}
+              className="header__link header__login-btn"
+            >
               <div className="header__user-container">
-                <p className="header__username">{currentUser.name}</p>
+                <p className="header__username">Log in</p>
                 {renderAvatar()}
               </div>
-              <button
-                onClick={() => {
-                  handleAddClick();
-                  toggleMobileMenu();
-                }}
-                type="button"
-                className="header__add-clothes-btn modal__add-clothes-btn"
-              >
-                + Add clothes
-              </button>
-            </>
-          ) : (
-            <div className="header__mobile-auth">
-              <button
-                type="button"
-                onClick={() => {
-                  onOpenRegister && onOpenRegister();
-                  toggleMobileMenu();
-                }}
-                className="header__auth-btn modal__signup-btn"
-              >
-                Sign up
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  onOpenLogin && onOpenLogin();
-                  toggleMobileMenu();
-                }}
-                className="header__auth-btn modal__login-btn"
-              >
-                Log in
-              </button>
-            </div>
-          )}
-        </div>
+            </button>
+          </div>
+        )}
+
+        <button
+          onClick={toggleMobileMenu}
+          className="header__menu-btn"
+          aria-label="Toggle menu"
+        >
+          <img src={menu} alt="App Menu" />
+        </button>
+      </header>
+
+      {isMobileMenuOpened && (
+        <>
+          <div
+            className="header__menu-backdrop"
+            onClick={toggleMobileMenu}
+          ></div>
+          <div className="modal__content-header header__menu-open">
+            <button onClick={toggleMobileMenu} className="modal__close">
+              <img src={close} alt="Close button" />
+            </button>
+            {currentUser ? (
+              <>
+                <div className="header__user-container">
+                  <p className="header__username">{currentUser.name}</p>
+                  {renderAvatar()}
+                </div>
+                <button
+                  onClick={() => {
+                    handleAddClick();
+                    toggleMobileMenu();
+                  }}
+                  type="button"
+                  className="header__add-clothes-btn modal__add-clothes-btn"
+                >
+                  + Add clothes
+                </button>
+              </>
+            ) : (
+              <div className="header__mobile-auth">
+                <button
+                  type="button"
+                  onClick={() => {
+                    onOpenRegister && onOpenRegister();
+                    toggleMobileMenu();
+                  }}
+                  className="header__auth-btn modal__signup-btn"
+                >
+                  Sign up
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onOpenLogin && onOpenLogin();
+                    toggleMobileMenu();
+                  }}
+                  className="header__auth-btn modal__login-btn"
+                >
+                  Log in
+                </button>
+              </div>
+            )}
+          </div>
+        </>
       )}
-    </header>
+    </>
   );
 }
 
