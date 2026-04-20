@@ -80,7 +80,7 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
             onClick={onOpenRegister}
             className="header__signup-link"
           >
-            Sign up
+            Sign Up
           </button>
           <button
             type="button"
