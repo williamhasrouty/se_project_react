@@ -186,8 +186,7 @@
   width: 100%;
   max-width: 343px;
   min-height: 160px;
-  background-color: #fff;
-  background: white;
+  background: #ffffff;
   z-index: 999999;
   display: flex;
   flex-direction: column;
@@ -196,7 +195,7 @@
   top: 120px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 20px;
+  padding: 48px 20px 24px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
@@ -207,8 +206,8 @@
   width: 20px;
   height: 20px;
   position: absolute;
-  right: 12px;
-  top: 12px;
+  right: 16px;
+  top: 16px;
   cursor: pointer;
   transition: opacity 0.2s;
 }
@@ -221,16 +220,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
   width: 100%;
-  padding-top: 16px;
 }
 
 .modal__content-header .header__user-container {
   display: flex;
   gap: 12px;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .modal__content-header .header__username {
@@ -242,10 +240,15 @@
 }
 
 .header__avatar {
-  width: 56px;
-  height: 56px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.modal__content-header .header__avatar {
+  width: 56px;
+  height: 56px;
 }
 
 .header__avatar_placeholder {
@@ -254,8 +257,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
+}
+
+.modal__content-header .header__avatar_placeholder {
+  font-size: 28px;
 }
 
 .header__mobile-auth {
