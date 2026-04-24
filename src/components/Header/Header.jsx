@@ -57,7 +57,7 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
             type="button"
             className="header__add-clothes-btn"
           >
-            + Add clothes
+            + Add garments
           </button>
         )}
 
