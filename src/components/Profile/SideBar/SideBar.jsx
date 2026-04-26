@@ -50,7 +50,7 @@ function SideBar({ onEditProfile, onSignOut }) {
           Change profile info
         </button>
         <button className="sidebar__signout-btn" onClick={handleSignOutClick}>
-          Sign out
+          Log out
         </button>
       </div>
     </div>
