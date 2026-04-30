@@ -5,7 +5,7 @@ function Footer() {
 
   return (
     <footer className="footer">
-      <p className="footer__name">Developed by Will Hasrouty</p>
+      <p className="footer__name">Developed by William Hasrouty</p>
       <p className="footer__year">{currentYear}</p>
     </footer>
   );
