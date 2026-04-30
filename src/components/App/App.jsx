@@ -144,14 +144,18 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getItems()
+    if (!token) {
+      setClothingItems([]);
+      return;
+    }
+    getItems(token)
       .then((data) => {
         setClothingItems(data);
       })
       .catch((err) => {
         console.error("Failed to fetch clothing items:", err);
       });
-  }, []);
+  }, [token]);
 
   // Set isLoggedIn based on currentUser
   useEffect(() => {

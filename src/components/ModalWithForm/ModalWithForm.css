@@ -101,7 +101,7 @@
 .modal__submit {
   border: none;
   color: #fff;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2ecc71 0%, #3498db 100%);
   border-radius: 25px;
   padding: 12px 32px;
   max-width: none;
@@ -111,13 +111,13 @@
   font-weight: 600;
   font-size: 16px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
 }
 
 .modal__submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+  background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
 }
 
 /* Image upload section styles */
@@ -149,24 +149,24 @@
   display: block;
   width: 100%;
   padding: 12px;
-  border: 2px dashed rgba(102, 126, 234, 0.4);
+  border: 2px dashed rgba(46, 204, 113, 0.4);
   border-radius: 12px;
-  background: rgba(102, 126, 234, 0.05);
+  background: rgba(52, 152, 219, 0.05);
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
 }
 
 .modal__file-input:hover {
-  border-color: #667eea;
-  background: rgba(102, 126, 234, 0.1);
+  border-color: #2ecc71;
+  background: rgba(52, 152, 219, 0.1);
 }
 
 .modal__file-input::-webkit-file-upload-button {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2ecc71 0%, #3498db 100%);
   color: white;
   font-weight: 600;
   cursor: pointer;

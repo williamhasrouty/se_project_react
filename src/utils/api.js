@@ -35,9 +35,13 @@ const defaultHeaders = {
   "Content-Type": "application/json",
 };
 
-function getItems() {
-  // Public endpoint
-  return fetch(`${BASE_URL}/items`).then((res) => checkResponse(res));
+function getItems(token) {
+  const headers = { ...defaultHeaders };
+  if (token) headers.authorization = `Bearer ${token}`;
+
+  return fetch(`${BASE_URL}/items`, {
+    headers,
+  }).then((res) => checkResponse(res));
 }
 
 function addItem({ name, imageUrl, weather }, token) {
