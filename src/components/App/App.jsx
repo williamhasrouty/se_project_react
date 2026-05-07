@@ -230,14 +230,14 @@ function App() {
     (!isLiked ? addCardLike(id, token) : removeCardLike(id, token))
       .then((updatedCard) => {
         setClothingItems((cards) =>
-          cards.map((item) => (item._id === id ? updatedCard : item))
+          cards.map((item) => (item._id === id ? updatedCard : item)),
         );
       })
       .catch((err) =>
         console.error(
           "Failed to update like status for card (id: " + id + "):",
-          err
-        )
+          err,
+        ),
       );
   };
 

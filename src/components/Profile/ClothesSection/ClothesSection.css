@@ -41,6 +41,19 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+.clothes-section__category {
+  margin-bottom: 32px;
+}
+
+.clothes-section__category-title {
+  margin: 0 0 16px 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding-left: 4px;
+}
+
 .clothes-section__items {
   display: flex;
   flex-wrap: wrap;
