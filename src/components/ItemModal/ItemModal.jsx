@@ -6,8 +6,18 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 function ItemModal({ activeModal, onClose, card, onDeleteClick }) {
   const currentUser = useContext(CurrentUserContext);
   const isOwn = card && currentUser && card.owner === currentUser._id;
+
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
+    <div
+      className={`modal ${activeModal === "preview" && "modal_opened"}`}
+      onClick={handleOverlayClick}
+    >
       <div className="modal__content-item">
         <button onClick={onClose} type="button" className="modal__close">
           <img src={closeBtn} alt="Close button" />
