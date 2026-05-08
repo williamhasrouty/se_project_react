@@ -1,32 +1,16 @@
 .page {
-  background: linear-gradient(
-    135deg,
-    #2ecc71 0%,
-    #f39c12 25%,
-    #1abc9c 50%,
-    #3498db 75%,
-    #e67e22 100%
+  background: radial-gradient(
+    ellipse at top,
+    #6b8e23 0%,
+    #556b2f 50%,
+    #8b7355 100%
   );
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   width: 100%;
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 .page__content {

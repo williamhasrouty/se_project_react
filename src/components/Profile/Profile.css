@@ -1,3 +1,13 @@
 .profile {
   display: flex;
+  gap: 40px;
+}
+
+.profile__sidebar {
+  flex-shrink: 0;
+}
+
+.profile__clothing-items {
+  flex: 1;
+  min-width: 0;
 }
