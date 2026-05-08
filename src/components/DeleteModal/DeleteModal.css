@@ -9,25 +9,26 @@
   justify-content: center;
   width: 670px;
   height: 280px;
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #f5deb3 0%, #deb887 100%);
   backdrop-filter: blur(20px);
   align-items: center;
   flex-direction: column;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid #8b7355;
   border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .delete__message {
   text-align: center;
   margin: 0 0 40px;
+  color: #3d2817;
 }
 
 .delete-confirm__btn {
-  border: 2px solid #ff4d00;
-  background: rgba(255, 77, 0, 0.1);
+  border: 2px solid #b8621b;
+  background: rgba(184, 98, 27, 0.1);
   margin: 0 0 24px;
-  color: #ff4d00;
+  color: #b8621b;
   cursor: pointer;
   padding: 12px 32px;
   border-radius: 25px;
@@ -37,16 +38,16 @@
 }
 
 .delete-confirm__btn:hover {
-  background: #ff4d00;
-  color: #ffffff;
+  background: #b8621b;
+  color: #f5deb3;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 77, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(184, 98, 27, 0.4);
 }
 
 .delete__cancel {
-  border: 2px solid rgba(102, 126, 234, 0.5);
-  color: #667eea;
-  background: rgba(102, 126, 234, 0.1);
+  border: 2px solid #6b8e23;
+  color: #6b8e23;
+  background: rgba(107, 142, 35, 0.1);
   margin: 0;
   cursor: pointer;
   padding: 12px 32px;
@@ -57,7 +58,7 @@
 }
 
 .delete__cancel:hover {
-  background: rgba(102, 126, 234, 0.2);
+  background: rgba(107, 142, 35, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(107, 142, 35, 0.3);
 }

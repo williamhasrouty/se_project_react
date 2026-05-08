@@ -3,11 +3,12 @@
   align-items: center;
   padding: 20px 30px;
   transition: 0.5s ease-in-out;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(139, 115, 85, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(222, 184, 135, 0.3);
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 20px;
@@ -29,8 +30,8 @@
 
 .header__add-clothes-btn {
   margin: 0 20px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #deb887;
+  background: rgba(222, 184, 135, 0.3);
   padding: 10px 20px;
   font-size: 20px;
   line-height: 24px;
@@ -42,9 +43,9 @@
 }
 
 .header__add-clothes-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(222, 184, 135, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .header__user-container {
@@ -86,8 +87,8 @@
   text-decoration: none;
   color: #ffffff;
   font-size: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(222, 184, 135, 0.3);
+  border: 2px solid #deb887;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 25px;
@@ -97,7 +98,7 @@
 }
 
 .header__signup-link:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(222, 184, 135, 0.5);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
