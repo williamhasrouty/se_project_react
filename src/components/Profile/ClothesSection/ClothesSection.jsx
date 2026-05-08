@@ -1,6 +1,6 @@
 import "./ClothesSection.css";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import ItemCard from "../../ItemCard/ItemCard";
 
@@ -11,72 +11,54 @@ function ClothesSection({
   handleAddClick,
 }) {
   const currentUser = useContext(CurrentUserContext);
+  const [selectedWeather, setSelectedWeather] = useState("all");
+
   const userItems = clothingItems.filter(
     (item) => currentUser && item.owner === currentUser._id,
   );
 
-  const coldItems = userItems.filter((item) => item.weather === "cold");
-  const warmItems = userItems.filter((item) => item.weather === "warm");
-  const hotItems = userItems.filter(
-    (item) => item.weather === "hot" || item.weather === "Hot",
-  );
+  const filteredItems = userItems.filter((item) => {
+    if (selectedWeather === "all") return true;
+    if (selectedWeather === "cold") return item.weather === "cold";
+    if (selectedWeather === "warm") return item.weather === "warm";
+    if (selectedWeather === "hot")
+      return item.weather === "hot" || item.weather === "Hot";
+    return true;
+  });
+
+  const handleWeatherChange = (e) => {
+    setSelectedWeather(e.target.value);
+  };
 
   return (
     <div className="clothes-section">
       <div className="clothes-section__header">
         <p>Your items</p>
+        <select
+          className="clothes-section__filter"
+          value={selectedWeather}
+          onChange={handleWeatherChange}
+        >
+          <option value="all">All</option>
+          <option value="cold">Cold</option>
+          <option value="warm">Warm</option>
+          <option value="hot">Hot</option>
+        </select>
         <button onClick={handleAddClick} className="clothes-section__add-btn">
           + Add New
         </button>
       </div>
 
-      {coldItems.length > 0 && (
-        <div className="clothes-section__category">
-          <h3 className="clothes-section__category-title">Cold Weather</h3>
-          <ul className="clothes-section__items">
-            {coldItems.map((item) => (
-              <ItemCard
-                key={item._id}
-                item={item}
-                onCardClick={handleCardClick}
-                onCardLike={onCardLike}
-              />
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {warmItems.length > 0 && (
-        <div className="clothes-section__category">
-          <h3 className="clothes-section__category-title">Warm Weather</h3>
-          <ul className="clothes-section__items">
-            {warmItems.map((item) => (
-              <ItemCard
-                key={item._id}
-                item={item}
-                onCardClick={handleCardClick}
-                onCardLike={onCardLike}
-              />
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {hotItems.length > 0 && (
-        <div className="clothes-section__category">
-          <h3 className="clothes-section__category-title">Hot Weather</h3>
-          <ul className="clothes-section__items">
-            {hotItems.map((item) => (
-              <ItemCard
-                key={item._id}
-                item={item}
-                onCardClick={handleCardClick}
-                onCardLike={onCardLike}
-              />
-            ))}
-          </ul>
-        </div>
-      )}
+      <ul className="clothes-section__items">
+        {filteredItems.map((item) => (
+          <ItemCard
+            key={item._id}
+            item={item}
+            onCardClick={handleCardClick}
+            onCardLike={onCardLike}
+          />
+        ))}
+      </ul>
     </div>
   );
 }

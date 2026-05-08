@@ -24,6 +24,31 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.clothes-section__filter {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.clothes-section__filter:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.clothes-section__filter option {
+  background: #333;
+  color: #ffffff;
+}
+
 .clothes-section__add-btn {
   border: 2px solid rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.2);
@@ -39,19 +64,6 @@
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.clothes-section__category {
-  margin-bottom: 32px;
-}
-
-.clothes-section__category-title {
-  margin: 0 0 16px 0;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  padding-left: 4px;
 }
 
 .clothes-section__items {
