@@ -45,7 +45,7 @@ function ClothesSection({
           <option value="hot">Hot</option>
         </select>
         <button onClick={handleAddClick} className="clothes-section__add-btn">
-          + Add New
+          + Add New Item
         </button>
       </div>
 
