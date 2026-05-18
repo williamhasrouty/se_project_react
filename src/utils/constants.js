@@ -11,18 +11,38 @@ export const weatherOptions = [
   },
   {
     day: true,
-    condition: "fog",
-    url: new URL("../assets/day/foggy.svg", import.meta.url),
-  },
-  {
-    day: true,
     condition: "rain",
     url: new URL("../assets/day/rain.svg", import.meta.url),
   },
   {
     day: true,
-    condition: "storm",
+    condition: "drizzle",
+    url: new URL("../assets/day/rain.svg", import.meta.url),
+  },
+  {
+    day: true,
+    condition: "thunderstorm",
     url: new URL("../assets/day/storm.svg", import.meta.url),
+  },
+  {
+    day: true,
+    condition: "mist",
+    url: new URL("../assets/day/foggy.svg", import.meta.url),
+  },
+  {
+    day: true,
+    condition: "fog",
+    url: new URL("../assets/day/foggy.svg", import.meta.url),
+  },
+  {
+    day: true,
+    condition: "haze",
+    url: new URL("../assets/day/foggy.svg", import.meta.url),
+  },
+  {
+    day: true,
+    condition: "smoke",
+    url: new URL("../assets/day/foggy.svg", import.meta.url),
   },
   {
     day: false,
@@ -36,18 +56,38 @@ export const weatherOptions = [
   },
   {
     day: false,
-    condition: "fog",
-    url: new URL("../assets/night/foggy.svg", import.meta.url),
-  },
-  {
-    day: false,
     condition: "rain",
     url: new URL("../assets/night/rain.svg", import.meta.url),
   },
   {
     day: false,
-    condition: "storm",
+    condition: "drizzle",
+    url: new URL("../assets/night/rain.svg", import.meta.url),
+  },
+  {
+    day: false,
+    condition: "thunderstorm",
     url: new URL("../assets/night/storm.svg", import.meta.url),
+  },
+  {
+    day: false,
+    condition: "mist",
+    url: new URL("../assets/night/foggy.svg", import.meta.url),
+  },
+  {
+    day: false,
+    condition: "fog",
+    url: new URL("../assets/night/foggy.svg", import.meta.url),
+  },
+  {
+    day: false,
+    condition: "haze",
+    url: new URL("../assets/night/foggy.svg", import.meta.url),
+  },
+  {
+    day: false,
+    condition: "smoke",
+    url: new URL("../assets/night/foggy.svg", import.meta.url),
   },
 ];
 
