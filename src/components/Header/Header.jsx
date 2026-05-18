@@ -75,7 +75,7 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
               onClick={onOpenRegister}
               className="header__signup-link"
             >
-              Register
+              Sign Up
             </button>
             <button
               type="button"
@@ -136,7 +136,7 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
                   }}
                   className="header__auth-btn modal__signup-btn"
                 >
-                  Sign up
+                  Sign Up
                 </button>
                 <button
                   type="button"
