@@ -22,7 +22,7 @@
 
 .modal__title {
   margin: 0 0 24px;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 20px;
   color: #3d2817;
 }
@@ -63,7 +63,7 @@
   border: 2px solid #8b7355;
   border-radius: 12px;
   width: 100%;
-  margin-bottom: 24px;
+  margin: 6px 0 24px;
   padding: 12px 16px;
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.9);
