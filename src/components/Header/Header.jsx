@@ -48,6 +48,7 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
         </Link>
         <p className="header__date-and-location">
           {currentDate}, {weatherData.city}
+          {weatherData.state && `, ${weatherData.state}`}
         </p>
 
         <ToggleSwitch />

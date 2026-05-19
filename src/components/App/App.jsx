@@ -5,7 +5,11 @@ import { useNavigate, Navigate, Routes, Route } from "react-router-dom";
 
 // Utils/API
 import { coordinates, apiKey } from "../../utils/constants";
-import { getWeather, filterWeatherData } from "../../utils/weatherApi";
+import {
+  getWeather,
+  filterWeatherData,
+  getLocation,
+} from "../../utils/weatherApi";
 import {
   getItems,
   addItem,
@@ -39,6 +43,7 @@ function App() {
     type: "",
     temp: { F: 999, C: 999 },
     city: "",
+    state: "",
     condition: "",
     isDay: false,
   });
@@ -132,9 +137,12 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, apiKey)
-      .then((data) => {
-        const filteredData = filterWeatherData(data);
+    Promise.all([
+      getWeather(coordinates, apiKey),
+      getLocation(coordinates, apiKey),
+    ])
+      .then(([weatherData, locationData]) => {
+        const filteredData = filterWeatherData(weatherData, locationData);
         setWeatherData(filteredData);
         setIsWeatherDataLoaded(true);
       })
