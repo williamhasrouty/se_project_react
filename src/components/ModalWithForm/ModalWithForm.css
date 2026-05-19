@@ -151,40 +151,42 @@
   display: block;
   width: 100%;
   padding: 12px;
-  border: 2px dashed rgba(46, 204, 113, 0.4);
+  border: 2px dashed #8b7355;
   border-radius: 12px;
-  background: rgba(52, 152, 219, 0.05);
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
 }
 
 .modal__file-input:hover {
-  border-color: #2ecc71;
-  background: rgba(52, 152, 219, 0.1);
+  border-color: #6b8e23;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .modal__file-input::-webkit-file-upload-button {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(135deg, #2ecc71 0%, #3498db 100%);
+  background: linear-gradient(135deg, #6b8e23 0%, #556b2f 100%);
   color: white;
   font-weight: 600;
   cursor: pointer;
   margin-right: 12px;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(107, 142, 35, 0.3);
 }
 
 .modal__file-input::-webkit-file-upload-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(107, 142, 35, 0.5);
+  background: linear-gradient(135deg, #556b2f 0%, #6b8e23 100%);
 }
 
 .modal__file-preview {
   margin-top: 16px;
   padding: 16px;
-  border: 2px solid rgba(102, 126, 234, 0.2);
+  border: 2px solid #8b7355;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.5);
   display: flex;
