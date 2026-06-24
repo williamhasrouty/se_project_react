@@ -18,14 +18,12 @@
 }
 
 .header__logo {
-  margin-right: 24px;
-  max-width: 100%;
-  height: auto;
+  height: 150px;
 }
 
 .header__date-and-location {
   margin: 0;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 24px;
   color: rgba(255, 255, 255, 0.85);
 }

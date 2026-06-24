@@ -42,10 +42,11 @@ function Header({ handleAddClick, weatherData, onOpenRegister, onOpenLogin }) {
 
   return (
     <>
+      <Link to="/">
+        <img className="header__logo" src={logo} alt="Header Logo" />
+      </Link>
       <header className="header">
-        <Link to="/">
-          <img className="header__logo" src={logo} alt="Header Logo" />
-        </Link>
+        
         <p className="header__date-and-location">
           {currentDate}, {weatherData.city}
           {weatherData.state && `, ${weatherData.state}`}
