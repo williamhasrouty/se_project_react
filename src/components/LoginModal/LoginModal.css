@@ -13,9 +13,9 @@
   z-index: 100;
   font-size: 16px;
   line-height: 20px;
-  transition:
+  /* transition:
     opacity 0.25s ease,
-    visibility 0.25s ease;
+    visibility 0.25s ease; */
 }
 
 .modal_opened {
