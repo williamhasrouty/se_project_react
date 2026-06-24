@@ -1,17 +1,20 @@
 .header {
   display: flex;
   align-items: center;
-  padding: 20px 30px;
-  transition: 0.5s ease-in-out;
-  background: rgba(139, 115, 85, 0.3);
-  backdrop-filter: blur(10px);
+  padding: 16px 28px;
+  transition: 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(222, 184, 135, 0.3);
+  margin-top: 20px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 20px;
 }
 
 .header__logo {
@@ -24,28 +27,29 @@
   margin: 0;
   font-size: 20px;
   line-height: 24px;
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .header__add-clothes-btn {
   margin: 0 20px;
-  border: 2px solid #deb887;
-  background: rgba(222, 184, 135, 0.3);
-  padding: 5px 10px;
-  font-size: 18px;
+  border: 1px solid rgba(139, 92, 246, 0.6);
+  background: rgba(139, 92, 246, 0.2);
+  padding: 8px 20px;
+  font-size: 16px;
   line-height: 24px;
   cursor: pointer;
   border-radius: 25px;
   color: #ffffff;
   transition: all 0.3s ease;
   font-weight: 600;
+  backdrop-filter: blur(8px);
 }
 
 .header__add-clothes-btn:hover {
-  background: rgba(222, 184, 135, 0.5);
+  background: rgba(139, 92, 246, 0.4);
+  border-color: rgba(139, 92, 246, 0.9);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.45);
 }
 
 .header__user-container {
@@ -59,21 +63,20 @@
   line-height: 1;
   font-size: 20px;
   color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-weight: 600;
 }
 
 .header__link {
   text-decoration: none;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.85);
   background: transparent;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .header__link:hover {
+  color: #ffffff;
   transform: scale(1.05);
 }
 
@@ -86,21 +89,21 @@
 .header__signup-link {
   text-decoration: none;
   color: #ffffff;
-  font-size: 20px;
-  background: rgba(222, 184, 135, 0.3);
-  border: 2px solid #deb887;
-  padding: 10px 20px;
+  font-size: 18px;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.6);
+  padding: 9px 20px;
   cursor: pointer;
   border-radius: 25px;
   transition: all 0.3s ease;
   font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .header__signup-link:hover {
-  background: rgba(222, 184, 135, 0.5);
+  background: rgba(139, 92, 246, 0.4);
+  border-color: rgba(139, 92, 246, 0.9);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
 }
 
 @media screen and (max-width: 768px) {
@@ -188,17 +191,20 @@
   width: 100%;
   max-width: 343px;
   min-height: 160px;
-  background: #ffffff;
+  background: rgba(30, 20, 60, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   z-index: 999999;
   display: flex;
   flex-direction: column;
-  border-radius: 16px;
+  border-radius: 20px;
   position: fixed;
   top: 120px;
   left: 50%;
   transform: translateX(-50%);
   padding: 48px 20px 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .header__menu-open .modal__close {
@@ -234,8 +240,7 @@
 }
 
 .modal__content-header .header__username {
-  color: #000000;
-  text-shadow: none;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 700;
   margin: 0;
@@ -287,29 +292,31 @@
 }
 
 .modal__signup-btn {
-  background: #000000;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #ffffff;
+  border: none;
 }
 
 .modal__signup-btn:hover {
-  background: #333333;
+  opacity: 0.88;
   transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
 }
 
 .modal__login-btn {
-  background: transparent;
-  color: #000000;
-  border: 2px solid #000000;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .modal__login-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .modal__add-clothes-btn {
   width: 100%;
   color: #ffffff;
-  background: #000000;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
   padding: 14px 20px;
   font-size: 16px;
@@ -320,8 +327,9 @@
 }
 
 .modal__add-clothes-btn:hover {
-  background: #333333;
+  opacity: 0.88;
   transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
 }
 
 .modal__content-header .header__add-clothes-btn {

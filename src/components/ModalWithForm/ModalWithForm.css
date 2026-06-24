@@ -24,7 +24,7 @@
   margin: 0 0 24px;
   font-size: 20px;
   line-height: 20px;
-  color: #3d2817;
+  color: #ffffff;
 }
 
 .modal__close {
@@ -39,15 +39,18 @@
 
 .modal__content-form {
   position: relative;
-  background: linear-gradient(135deg, #f5deb3 0%, #deb887 100%);
-  backdrop-filter: blur(20px);
-  border: 2px solid #8b7355;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 36px 36px 44px;
   max-width: 496px;
   box-sizing: border-box;
   width: 100%;
   border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .modal__form {
@@ -60,35 +63,38 @@
   display: block;
   font-size: 16px;
   line-height: 20px;
-  border: 2px solid #8b7355;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   width: 100%;
   margin: 6px 0 24px;
   padding: 12px 16px;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.9);
-  color: #3d2817;
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
 }
 
 .modal__input:focus {
   outline: none;
-  border-color: #6b8e23;
-  box-shadow: 0 0 0 3px rgba(107, 142, 35, 0.2);
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .modal__input::placeholder {
-  color: #00000080;
+  color: rgba(255, 255, 255, 0.4);
   font-size: 16px;
 }
 
 .modal__label {
   font-size: 16px;
   line-height: 20px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .modal__legend {
   margin: 0 0 8px;
   font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .modal__radio-buttons {
@@ -103,7 +109,7 @@
 .modal__submit {
   border: none;
   color: #fff;
-  background: linear-gradient(135deg, #6b8e23 0%, #556b2f 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 25px;
   padding: 12px 32px;
   max-width: none;
@@ -113,13 +119,13 @@
   font-weight: 600;
   font-size: 16px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(107, 142, 35, 0.4);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
 }
 
 .modal__submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(107, 142, 35, 0.6);
-  background: linear-gradient(135deg, #556b2f 0%, #6b8e23 100%);
+  box-shadow: 0 8px 28px rgba(102, 126, 234, 0.6);
+  opacity: 0.9;
 }
 
 /* Image upload section styles */
@@ -151,44 +157,45 @@
   display: block;
   width: 100%;
   padding: 12px;
-  border: 2px dashed #8b7355;
+  border: 1px dashed rgba(139, 92, 246, 0.5);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .modal__file-input:hover {
-  border-color: #6b8e23;
-  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(139, 92, 246, 0.8);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .modal__file-input::-webkit-file-upload-button {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(135deg, #6b8e23 0%, #556b2f 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   font-weight: 600;
   cursor: pointer;
   margin-right: 12px;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(107, 142, 35, 0.3);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.35);
 }
 
 .modal__file-input::-webkit-file-upload-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(107, 142, 35, 0.5);
-  background: linear-gradient(135deg, #556b2f 0%, #6b8e23 100%);
+  box-shadow: 0 4px 14px rgba(102, 126, 234, 0.55);
+  opacity: 0.9;
 }
 
 .modal__file-preview {
   margin-top: 16px;
   padding: 16px;
-  border: 2px solid #8b7355;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -206,7 +213,7 @@
 .modal__file-name {
   margin: 0;
   font-size: 14px;
-  color: #666;
+  color: rgba(255, 255, 255, 0.6);
   text-align: center;
   word-break: break-all;
 }

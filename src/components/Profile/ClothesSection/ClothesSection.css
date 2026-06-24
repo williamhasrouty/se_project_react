@@ -11,13 +11,15 @@
   width: 100%;
   min-width: 100%;
   flex-shrink: 0;
-  background: rgba(139, 115, 85, 0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 16px 24px;
   border-radius: 15px;
   margin-bottom: 20px;
   box-sizing: border-box;
-  border: 1px solid rgba(222, 184, 135, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .clothes-section__header p {
@@ -25,14 +27,13 @@
   color: #ffffff;
   font-weight: 700;
   font-size: 20px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .clothes-section__filter {
   margin-left: auto;
   padding: 8px 16px;
-  border: 2px solid #deb887;
-  background: rgba(222, 184, 135, 0.3);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  background: rgba(139, 92, 246, 0.15);
   color: #ffffff;
   border-radius: 20px;
   font-weight: 600;
@@ -43,19 +44,20 @@
 }
 
 .clothes-section__filter:hover {
-  background: rgba(222, 184, 135, 0.5);
+  background: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.8);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
 }
 
 .clothes-section__filter option {
-  background: #3d2817;
+  background: #1e1040;
   color: #ffffff;
 }
 
 .clothes-section__add-btn {
-  border: 2px solid #deb887;
-  background: rgba(222, 184, 135, 0.3);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  background: rgba(139, 92, 246, 0.15);
   color: #ffffff;
   padding: 8px 16px;
   cursor: pointer;
@@ -65,9 +67,10 @@
 }
 
 .clothes-section__add-btn:hover {
-  background: rgba(222, 184, 135, 0.5);
+  background: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.8);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
 }
 
 .clothes-section__items {
