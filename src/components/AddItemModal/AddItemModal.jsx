@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { useForm } from "../../utils/hooks/useForm";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
+const defaultValues = {
+  name: "",
+  imageUrl: "",
+  weatherType: "",
+};
+
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
-  const defaultValues = {
-    name: "",
-    imageUrl: "",
-    weatherType: "",
-  };
   const { values, handleChange, setValues } = useForm(defaultValues);
   const [uploadMethod, setUploadMethod] = useState("url"); // 'url' or 'file'
   const [selectedFile, setSelectedFile] = useState(null);
@@ -20,7 +21,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
       setSelectedFile(null);
       setFilePreview(null);
     }
-  }, [isOpen]);
+  }, [isOpen, setValues]);
 
   const handleFileChange = (evt) => {
     const file = evt.target.files[0];
