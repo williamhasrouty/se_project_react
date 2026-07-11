@@ -18,6 +18,8 @@
 
 - Responsive design for seamless use across desktop, tablet, and mobile devices.
 
+- Modern App look implemented - Mood Purple. 
+
 ** Technologies Used **
 
 - React (Class Components) — for building the user interface and managing state.
