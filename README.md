@@ -20,7 +20,7 @@
 
 - Modern App look implemented - Mood Purple and black. 
 
-
+- By William
 
 ** Technologies Used **
 
