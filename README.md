@@ -18,7 +18,9 @@
 
 - Responsive design for seamless use across desktop, tablet, and mobile devices.
 
-- Modern App look implemented - Mood Purple. 
+- Modern App look implemented - Mood Purple and black. 
+
+
 
 ** Technologies Used **
 
